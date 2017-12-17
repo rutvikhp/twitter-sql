@@ -4,9 +4,7 @@ var app = express();
 var morgan = require('morgan');
 var nunjucks = require('nunjucks');
 var makesRouter = require('./routes');
-var fs = require('fs');
 var path = require('path');
-var mime = require('mime');
 var bodyParser = require('body-parser');
 var socketio = require('socket.io');
 
@@ -20,7 +18,7 @@ app.use(morgan('dev'));
 
 // body parsing middleware
 app.use(bodyParser.urlencoded({ extended: true })); // for HTML form submits
-app.use(bodyParser.json()); // would be for AJAX requests
+app.use(bodyParser.json()); // would be for AJAX request
 
 
 // start the server
@@ -34,12 +32,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 // modular routing that uses io inside it
 app.use('/', makesRouter(io));
 
-// // manually-written static file middleware
-// app.use(function(req, res, next){
-//   var mimeType = mime.lookup(req.path);
-//   fs.readFile('./public' + req.path, function(err, fileBuffer){
-//     if (err) return next();
-//     res.header('Content-Type', mimeType);
-//     res.send(fileBuffer);
-//   });
-// });
+app.use(function(err, req, res, next) { // 4 params = error handler
+  console.error(err);
+  res.status(500).send('oops, something went wrong');
+});

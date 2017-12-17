@@ -1,6 +1,6 @@
 TRUNCATE TABLE users, tweets;
 
-INSERT INTO users (name, picture_url) VALUES ('Tom Hanks',           'http://i.imgur.com/XDjBjfu.jpg');
+INSERT INTO users (name, picture_url) VALUES ('Tom Hank',           'http://i.imgur.com/XDjBjfu.jpg');
 INSERT INTO users (name, picture_url) VALUES ('Beyonce',             'http://i.imgur.com/1uTV9v2.jpg');
 INSERT INTO users (name, picture_url) VALUES ('Justin Bieber',       'http://i.imgur.com/bI1zf2b.jpg');
 INSERT INTO users (name, picture_url) VALUES ('Ash Ketchum',         'http://i.imgur.com/n7VJIua.jpg');
