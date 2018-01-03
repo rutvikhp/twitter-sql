@@ -1,6 +1,6 @@
 # twitter-sql
 npm install
 <br />
-npm seed
+Create and seed database from seed.sql
 <br />
 npm start
